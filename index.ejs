@@ -1,0 +1,25 @@
+---
+layout: default.ejs
+permalink: /
+---
+<section class="top">
+	<h2>Bienvenue sur Création-Edouard</h2>
+	<p>
+		Je vous propose mes créations couture qui sortent de tout pièce de mon atelier de coûture.
+		Vous choisissez les tissus, le modèle et je fais le reste.
+	</p>
+</section>
+<div class="list-group">
+	<section>
+		<%- include('/item-list', {
+			title: 'Our Products',
+			list: collections.products,
+			url: '/products/',
+			map: (product) => ({
+				image: product.data.image,
+				url: product.url,
+				label: product.data.name,
+			}),
+		}) %>
+	</section>
+</div>
