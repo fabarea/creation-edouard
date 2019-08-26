@@ -6,8 +6,9 @@
   "scripts": {
     "eleventy": "eleventy --serve --watch",
     "start": "gulp build & gulp watch & ELEVENTY_ENV=dev eleventy --serve",
-    "start3": "gulp build & gulp watch & ELEVENTY_ENV=dev eleventy --serve & yarn run start:lambda",
-    "build": "gulp build & ELEVENTY_ENV=prod eleventy && yarn run build:lambda",
+    "start-with-lambda": "gulp build & gulp watch & ELEVENTY_ENV=dev eleventy --serve & npm run start:lambda",
+    "build": "gulp build & ELEVENTY_ENV=prod eleventy",
+    "build-with-lambda": "gulp build & ELEVENTY_ENV=prod eleventy && npm run build:lambda",
     "start:lambda": "netlify-lambda serve lambda",
     "build:lambda": "netlify-lambda build lambda"
   },
