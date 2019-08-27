@@ -7,7 +7,7 @@ const concat  = require('gulp-concat');
   generate the css with sass
 */
 gulp.task('css', function() {
-    return gulp.src('./assets/scss/style.scss')
+    return gulp.src('./assets/scss/styles.scss')
         .pipe(sass({
             outputStyle: 'compressed'
         })
@@ -15,13 +15,12 @@ gulp.task('css', function() {
         .pipe(gulp.dest('./_site/assets'));
 });
 
-
 /*
  Uglify our javascript files into one.
  Use pump to expose errors more usefully.
 */
 gulp.task('js', function() {
-    return gulp.src("./src/js/**/*.js")
+    return gulp.src("./assets/js/*.js")
         .pipe(concat('site.js'))
         .pipe(uglify())
         .pipe(gulp.dest('./_site/assets'));
@@ -32,7 +31,7 @@ gulp.task('js', function() {
 */
 gulp.task("watch", function() {
     gulp.watch('./assets/scss/**/*.scss', gulp.parallel('css'));
-    gulp.watch('./src/js/**/*.js', gulp.parallel('js'));
+    gulp.watch('./assets/js/*.js', gulp.parallel('js'));
 });
 
 
